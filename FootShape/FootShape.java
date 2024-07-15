@@ -9,47 +9,37 @@ import java.util.Scanner;
  *
  * @author User
  */
-public class FootShape {
+public class FootShape extends Foot {
     /**
      * @param args the command line arguments
      */
-    private Foot customer;
-    public void getCustomerTypeFromUser(String customerType) {
-        switch(customerType) {
-            case "Regular":
-                customer = new RegularCustomer();
-                break;
-            //complete MountainCustomer
-            case "Mountain":
-                customer = new MountainCustomer();
-                break;
-            //complete DelinquentCustomer 
-            case "Delinquent":
-                customer = new DelinquentCustomer();
-                break;
-        }
+    private Foot foot;
+    
+    public String drawAsEllipse() {
+        Ellipse e  = new Ellipse();
+        return e.draw();
     }
-    public String generateMail() {
-        return customer.createMail();
+    
+    public String drawAsRectangle() {
+        Rectangle r  = new Rectangle();
+        return r.draw();
+        
     }
     
     public static void main(String[] args) {
-        CustomerMailApplication app = new CustomerMailApplication();
+        FootShape app = new FootShape();
         Scanner inp = new Scanner(System.in);
-        System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent ");
+        System.out.print("What to draw? type 1. Ellipse, 2. Rectangle");
         int type = inp.nextInt();
         switch(type) {
             case 1:
-                app.getCustomerTypeFromUser("Regular");
+                System.out.println(app.drawAsEllipse());  
                 break;
             case 2:
-                app.getCustomerTypeFromUser("Mountain");
-                break;
-            case 3:
-                app.getCustomerTypeFromUser("Delinquent");
+                System.out.println(app.drawAsRectangle()); 
                 break;
             
-        }
-        System.out.println(app.generateMail());        
+            
+        }       
     }
 }

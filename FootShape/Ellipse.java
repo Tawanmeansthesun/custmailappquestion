@@ -8,7 +8,7 @@ package FootShape;
  *
  * @author User
  */
-public class Ellipse {
+public class Ellipse extends Foot {
     @Override
     public String draw() {
         return "draw ellipse";
